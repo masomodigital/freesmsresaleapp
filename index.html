@@ -9,17 +9,17 @@
         body {
             text-align: center;
             margin: 0;
-            overflow: hidden; /* Ensure the canvas doesn't overflow */
+            overflow: hidden;
         }
 
         h4 {
-            font-size: 1.2em; /* Adjusted font size */
-            margin: 5px auto; /* Reduced margin by 50% */
+            font-size: 1.2em;
+            margin: 5px auto;
         }
 
         a {
             display: block;
-            margin: 5px auto; /* Reduced margin by 50% */
+            margin: 5px auto;
         }
 
         img {
@@ -28,13 +28,22 @@
         }
 
         p {
-            font-size: 0.9em; /* Adjusted font size */
-            margin: 5px auto; /* Reduced margin by 50% */
+            font-size: 0.9em;
+            margin: 5px auto;
+        }
+
+        #cube-container {
+            width: 100%;
+            height: 300px; /* Adjust height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
         canvas {
             display: block;
-            margin: 0 auto; /* Adjusted margin for the canvas */
+            position: absolute;
         }
     </style>
 </head>
@@ -44,16 +53,17 @@
         <img src="https://i.imgur.com/QGc77nj.png" alt="Your Icon" width="100" height="100">
     </a>
     <p>To resale this app and earn, you have to receive the sign-up fee from the client. Ensure the client also gives you their correct details (names, email address and phone number). Click the red button above and enter the client details. Ensure you fill in the client details correctly. Pay 50% of the sign-up fee on behalf of the client. The client will receive a receipt and password login details in their email address immediately after payment is complete.</p>
+    
+    <div id="cube-container"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <script>
-        // Set up scene, camera, and renderer
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10);
         const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+        renderer.setSize(window.innerWidth, 300); // Match container height
+        document.getElementById('cube-container').appendChild(renderer.domElement);
 
-        // Define new textures for each face of the cube
         const textures = [
             'https://i.imgur.com/mwpTHJj.png',
             'https://i.imgur.com/y0CwL9v.png',
@@ -63,26 +73,19 @@
             'https://i.imgur.com/SeAqYop.png'
         ];
 
-        // Create textures from new images
         const textureLoader = new THREE.TextureLoader();
         const materials = textures.map(textureUrl => new THREE.MeshBasicMaterial({ map: textureLoader.load(textureUrl) }));
 
-        // Create a cube with textured faces and add it to the scene
-        const geometry = new THREE.BoxGeometry(0.75, 0.75, 0.75); // Reduced size by 25%
+        const geometry = new THREE.BoxGeometry(0.75, 0.75, 0.75);
         const cube = new THREE.Mesh(geometry, materials);
         scene.add(cube);
 
-        // Set the camera position
         camera.position.z = 3;
 
-        // Animation function to rotate the cube
         function animate() {
             requestAnimationFrame(animate);
-
-            // Rotate the cube
             cube.rotation.x += 0.01;
             cube.rotation.y += 0.01;
-
             renderer.render(scene, camera);
         }
 
