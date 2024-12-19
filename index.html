@@ -45,6 +45,25 @@
             display: block;
             position: absolute;
         }
+
+        /* Make the iframe responsive */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -55,9 +74,8 @@
     <p>To resale this app and earn, you have to receive the sign-up fee from the client. Ensure the client also gives you their correct details (names, email address and phone number). Click the red button above and enter the client details. Ensure you fill in the client details correctly. Pay 50% of the sign-up fee on behalf of the client. The client will receive a receipt and password login details in their email address immediately after payment is complete.</p>
 
     <!-- Embed the YouTube video -->
-    <div>
-        <h4>Watch this video to learn more:</h4>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Hcd_X1CT8F8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Hcd_X1CT8F8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </body>
 </html>
