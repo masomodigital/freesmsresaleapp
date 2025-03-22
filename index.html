@@ -15,46 +15,86 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .content-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
         }
 
         h4 {
             font-size: 1.2em;
             margin: 5px auto;
+            color: #333;
         }
 
         a {
             display: block;
-            margin: 5px auto;
+            margin: 10px auto;
             text-decoration: none;
         }
 
         img {
             display: block;
-            margin: 0 auto;
+            margin: 10px auto;
         }
 
         p {
             font-size: 0.9em;
             margin: 5px auto;
             padding: 0 10px;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        ul li {
+            font-size: 1em;
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #333;
+        }
+
+        ul li::before {
+            content: '\2714'; /* Checkmark symbol */
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #007bff;
         }
     </style>
 </head>
 <body>
-    <h4>Click the ICON below to Resale App and Earn!</h4>
-    <a href="https://sites.google.com/view/agentsignup/home">
-        <img src="https://i.imgur.com/QGc77nj.png" alt="Your Icon" width="100" height="100">
-    </a>
-    <p>To resale this app and earn, follow these steps:</p>
-    <ul>
-        <li>Receive the sign-up fee from the client.</li>
-        <li>Ensure the client provides their correct details (names, email address, and phone number).</li>
-        <li>Click the red button above and enter the client details.</li>
-        <li>Fill in the client details correctly.</li>
-        <li>Pay the given sign-up fee on behalf of the client.</li>
-        <li>The client will receive a receipt and password login details in their email address immediately after payment is complete.</li>
-    </ul>
+    <div class="content-box">
+        <h4>Click the ICON below to Resale App and Earn!</h4>
+        <a href="https://sites.google.com/view/agentsignup/home">
+            <img src="https://i.imgur.com/QGc77nj.png" alt="Your Icon" width="100" height="100">
+        </a>
+        <p>To resale this app and earn, follow these steps:</p>
+        <ul>
+            <li>Receive the sign-up fee from the client.</li>
+            <li>Ensure the client provides their correct details (names, email address, and phone number).</li>
+            <li>Click the red button above and enter the client details.</li>
+            <li>Fill in the client details correctly.</li>
+            <li>Pay the given sign-up fee on behalf of the client.</li>
+            <li>The client will receive a receipt and password login details in their email address immediately after payment is complete.</li>
+        </ul>
+    </div>
 </body>
 </html>
